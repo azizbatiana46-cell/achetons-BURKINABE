@@ -170,11 +170,11 @@ Améliore le confort visuel des utilisateurs.
 
 | Nom | Rôle | Fichiers |
 |------|------|----------|
-| Nom étudiant 1 | Structure HTML et page d'accueil | index.html |
-| Nom étudiant 2 | Design CSS et Mode sombre | style.css |
-| Nom étudiant 3 | Catalogue produits et Galerie | index.html · script.js |
-| Nom étudiant 4 | Recherche et filtres | script.js |
-| Nom étudiant 5 | Formulaire de contact et intégration finale | index.html · script.js |
+| ZONGO Pawendtaore Ozias| Structure HTML et page d'accueil | index.html |
+| HOYNOUMA Nimatou | Design CSS et Mode sombre | style.css |
+| KINDO Wendkouni Andréa Mireille| Catalogue produits et Galerie | index.html · script.js |
+| OUEDRAOGO Rachidatou Hanifah| Recherche et filtres | script.js |
+| BATIANA Abdoul Aziz| Formulaire de contact et intégration finale | index.html · script.js |
 
 ---
 
