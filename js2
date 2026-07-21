@@ -1,1 +1,91 @@
+  document.getElementById('lightboxDesc').textContent = p.description;
+  document.getElementById('lightboxPrix').textContent = p.prix;
+  document.getElementById('lightboxVendeur').textContent = p.vendeur;
+}
 
+/* ==========================================================================
+   Personne 2 — Mode sombre
+   ========================================================================== */
+function appliquerModeSombre(actif){
+  document.body.classList.toggle('mode-sombre', actif);
+  const bouton = document.getElementById('toggleSombre');
+  bouton.textContent = actif ? '☀️ Mode clair' : '🌙 Mode sombre';
+  localStorage.setItem('achetons_bf_mode_sombre', actif ? '1' : '0');
+}
+
+/* ==========================================================================
+   Personne 1 — Navigation entre pages (fichier unique)
+   ========================================================================== */
+function allerA(nomPage){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + nomPage).classList.add('active');
+  document.querySelectorAll('.lien-nav').forEach(b => b.classList.toggle('actif', b.dataset.page === nomPage));
+  window.scrollTo({top:0, behavior:'smooth'});
+  if(nomPage === 'produits' && document.getElementById('grilleProduits').innerHTML === ''){
+    construireBoutonsCategories();
+    filtrerEtAfficher();
+  }
+}
+
+/* ==========================================================================
+   Personne 5 — Contact vendeur & Intégration finale
+   ========================================================================== */
+function remplirSelectProduits(){
+  const select = document.getElementById('produitConcerne');
+  PRODUITS.forEach(p => {
+    const option = document.createElement('option');
+    option.value = p.nom;
+    option.textContent = `${p.nom} — ${p.vendeur}`;
+    select.appendChild(option);
+  });
+}
+function validerChamp(id, condition){
+  const champ = document.getElementById(id);
+  champ.classList.toggle('invalide', !condition);
+  return condition;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Mode sombre : préférence sauvegardée
+  const prefSombre = localStorage.getItem('achetons_bf_mode_sombre') === '1';
+  appliquerModeSombre(prefSombre);
+  document.getElementById('toggleSombre').addEventListener('click', () => {
+    appliquerModeSombre(!document.body.classList.contains('mode-sombre'));
+  });
+
+  // Recherche produits
+  document.getElementById('rechercheProduit').addEventListener('input', filtrerEtAfficher);
+
+  // Contact
+  remplirSelectProduits();
+  document.getElementById('formContact').addEventListener('submit', function(e){
+    e.preventDefault();
+    const nom = document.getElementById('nom').value.trim();
+    const contactInfo = document.getElementById('contactInfo').value.trim();
+    const produit = document.getElementById('produitConcerne').value;
+    const message = document.getElementById('messageTexte').value.trim();
+
+    const regexTelephone = /^[0-9\s+]{8,}$/;
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const contactValide = regexTelephone.test(contactInfo) || regexEmail.test(contactInfo);
+
+    const nomOk = validerChamp('champNom', nom.length >= 2);
+    const contactOk = validerChamp('champContact', contactValide);
+    const produitOk = validerChamp('champProduit', produit !== '');
+    const messageOk = validerChamp('champMessage', message.length >= 10);
+
+    const messageConfirmation = document.getElementById('messageConfirmation');
+    if(nomOk && contactOk && produitOk && messageOk){
+      messageConfirmation.style.display = 'block';
+      this.reset();
+      document.querySelectorAll('.champ').forEach(c => c.classList.remove('invalide'));
+      messageConfirmation.scrollIntoView({behavior:'smooth', block:'center'});
+    } else {
+      messageConfirmation.style.display = 'none';
+    }
+  });
+
+  // Chargement initial de la page produits
+  construireBoutonsCategories();
+  filtrerEtAfficher();
+});
