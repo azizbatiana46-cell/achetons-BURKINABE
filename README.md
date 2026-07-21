@@ -1,4 +1,5 @@
-🧺 Achetons Burkinabè
+**🧺Achetons Burkinabè
+**
 Une plateforme web interactive dédiée à la promotion des produits locaux et à la mise en relation entre producteurs, artisans et consommateurs au Burkina Faso.
 
 📌 Description
@@ -11,7 +12,9 @@ Le miel
 Le coton
 L'artisanat burkinabè
 L'interface est simple, moderne et responsive afin de garantir une expérience utilisateur fluide sur ordinateur, tablette et smartphone.
+
 ▶️ Comment utiliser le projet
+
 Prérequis
 Un navigateur web moderne (Google Chrome, Firefox, Edge, Safari)
 Aucune installation particulière requise
@@ -50,6 +53,7 @@ Interactivité et logique de l'application
 localStorage
 API Web
 Sauvegarde des préférences utilisateur
+
 📁 Structure du projet
 Achetons_Burkinabe/
 │
@@ -96,6 +100,7 @@ Améliore le confort visuel des utilisateurs.
 Fonctionnalités
 Activation/désactivation du thème sombre
 Sauvegarde automatique des préférences grâce au localStorage
+
 👥 Répartition des tâches
 Membre
 Responsabilités
