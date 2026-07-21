@@ -1,66 +1,63 @@
-🧺**Achetons Burkinabè**
+# 🧺 Achetons Burkinabè
 
-Une plateforme web interactive dédiée à la promotion des produits locaux et à la mise en relation entre producteurs, artisans et consommateurs au Burkina Faso.
+Une plateforme web interactive de promotion des produits locaux et de mise en relation entre producteurs, artisans et consommateurs au Burkina Faso.
 
-📌 **Description**
+Projet réalisé dans le cadre du cours de Développement Web par les étudiants de première année en informatique du **Burkina Institute of Technology (BIT)** — **Juin 2026**.
 
-Achetons Burkinabè est une application web développée dans le cadre d'un projet universitaire réalisé par un groupe de cinq étudiants.
-La plateforme vise à valoriser les produits locaux du Burkina Faso en offrant un espace numérique où les producteurs et artisans peuvent présenter leurs produits, tandis que les consommateurs peuvent découvrir et contacter facilement les vendeurs.
-L'application met en avant plusieurs filières locales telles que :
-Le karité
-Le sésame
-Le miel
-Le coton
-L'artisanat burkinabè
-L'interface est simple, moderne et responsive afin de garantir une expérience utilisateur fluide sur ordinateur, tablette et smartphone.
+---
 
-▶️ **Comment utiliser le projet**
+## 📌 Description
 
-   Prérequis
+**Achetons Burkinabè** est une application web développée pour promouvoir le **consommer local** et mettre en valeur les produits du Burkina Faso.
 
-Un navigateur web moderne (Google Chrome, Firefox, Edge, Safari)
+La plateforme permet aux utilisateurs de découvrir différents produits locaux, de rechercher rapidement un produit ou un vendeur, de filtrer les produits par catégorie et de contacter directement les producteurs.
 
-Aucune installation particulière requise
+L'application fonctionne entièrement dans un navigateur web et offre une interface moderne, intuitive et responsive.
 
-    Étapes
-    
-Télécharger ou cloner le projet
+---
 
-git clone [URL_DU_DEPOT]
+# ▶️ Comment utiliser le projet
 
-Ouvrir le dossier du projet 
+## Prérequis
 
-Lancer le fichier :
+- Un navigateur web moderne (Google Chrome, Mozilla Firefox, Microsoft Edge ou Safari)
+- Aucun logiciel supplémentaire n'est nécessaire.
 
-index.html
+## Étapes
 
-L'application s'exécute directement dans le navigateur.
+### Cloner le dépôt
 
-✨ **Fonctionnalités**
+```bash
+git clone https://github.com/VOTRE-NOM-UTILISATEUR/Achetons_Burkinabe.git
+```
 
-Présentation des produits et filières locales du Burkina Faso.
+### Ouvrir le dossier du projet
 
-Catalogue interactif de produits locaux.
+```bash
+cd Achetons_Burkinabe
+```
 
-Affichage des détails des produits avec prix et informations sur le vendeur.
+### Lancer l'application
 
-Recherche instantanée par nom de produit ou vendeur.
+Ouvrir simplement le fichier **index.html** dans votre navigateur.
 
-Filtrage dynamique par catégorie.
+---
 
-Galerie d'images avec effet Lightbox.
+# ✨ Fonctionnalités
 
-Formulaire de contact permettant d'envoyer un message à un vendeur.
+- Présentation des produits locaux du Burkina Faso
+- Catalogue interactif des produits
+- Recherche instantanée par nom de produit ou vendeur
+- Filtrage dynamique par catégorie
+- Galerie d'images avec effet Lightbox
+- Formulaire de contact avec validation dynamique
+- Mode sombre (Dark Mode)
+- Sauvegarde des préférences utilisateur avec **localStorage**
+- Interface responsive adaptée aux téléphones, tablettes et ordinateurs
 
-Validation dynamique des champs du formulaire.
+---
 
-Mode sombre (Dark Mode) avec sauvegarde automatique des préférences utilisateur.
-
-Interface responsive adaptée aux différents écrans.
-
-
-🛠️ **Technologies utilisées**
-
+# 🛠️ Technologies utilisées
 
 | Technologie | Version | Utilisation |
 |-------------|---------|-------------|
@@ -69,81 +66,125 @@ Interface responsive adaptée aux différents écrans.
 | JavaScript (Vanilla) | ES6+ | Interactivité et logique de l'application |
 | localStorage | API Web | Sauvegarde des préférences utilisateur |
 
-📁 **Structure du projet**
+---
 
+# 📁 Structure du projet
+
+```text
 Achetons_Burkinabe/
 │
 ├── index.html      → Structure principale de la plateforme
-
-├── style.css       → Mise en forme, responsive design et mode sombre
-
+├── style.css       → Styles, responsive design et mode sombre
 ├── script.js       → Gestion des produits, recherche et interactions
-
 │
 └── README.md       → Documentation du projet
+```
 
-🧱 **Fonctionnement de l'application**
+---
 
-Page d'accueil
-Présente le concept du projet ainsi que les principales filières locales mises en valeur.
-Fonctionnalités
-Présentation du projet
-Valorisation des produits locaux
-Navigation intuitive
-Catalogue de produits
-Affiche l'ensemble des produits disponibles sur la plateforme.
-Fonctionnalités
-Affichage dynamique des produits
-Informations détaillées
-Prix et coordonnées des vendeurs
-Recherche et filtres
-Permet aux utilisateurs de trouver rapidement un produit spécifique.
-Fonctionnalités
-Recherche instantanée
-Filtrage par catégorie
-Mise à jour dynamique des résultats
-Galerie Lightbox
-Améliore l'expérience visuelle lors de la consultation des produits.
-Fonctionnalités
-Agrandissement des images
-Navigation entre les produits
-Interface intuitive
-Formulaire de contact
-Facilite la communication entre consommateurs et producteurs.
-Fonctionnalités
-Validation des champs
-Envoi de messages ciblés
-Interface simple d'utilisation
-Mode sombre (Dark Mode)
+# 🧱 Architecture de l'application
+
+## Page d'accueil
+
+Présente le concept de la plateforme ainsi que les principales filières locales.
+
+### Fonctionnalités
+
+- Présentation du projet
+- Valorisation des produits locaux
+- Navigation intuitive
+
+---
+
+## Catalogue des produits
+
+Affiche les produits disponibles avec leurs informations.
+
+### Fonctionnalités
+
+- Nom du produit
+- Prix
+- Description
+- Vendeur
+- Image
+
+---
+
+## Recherche et filtres
+
+Permet aux utilisateurs de retrouver rapidement un produit.
+
+### Fonctionnalités
+
+- Recherche instantanée
+- Filtrage par catégorie
+- Affichage dynamique
+
+---
+
+## Galerie Lightbox
+
+Permet d'afficher les images des produits en grand format.
+
+### Fonctionnalités
+
+- Agrandissement des images
+- Navigation entre les images
+
+---
+
+## Formulaire de contact
+
+Permet d'envoyer un message directement au vendeur.
+
+### Fonctionnalités
+
+- Validation des champs
+- Vérification des informations saisies
+- Interface simple
+
+---
+
+## Mode sombre
+
 Améliore le confort visuel des utilisateurs.
-Fonctionnalités
-Activation/désactivation du thème sombre
-Sauvegarde automatique des préférences grâce au localStorage
 
-👥 **Répartition des tâches**
+### Fonctionnalités
 
-Membres
+- Activation/Désactivation du thème sombre
+- Sauvegarde automatique des préférences grâce au **localStorage**
 
+---
 
-🎯 **Objectifs du projet**
+# 🎯 Objectifs du projet
 
-Promouvoir le consommer local.
+- Promouvoir les produits locaux du Burkina Faso
+- Valoriser les producteurs et artisans burkinabè
+- Encourager le consommer local
+- Faciliter la mise en relation entre vendeurs et consommateurs
+- Développer une plateforme web moderne et responsive
 
-Valoriser le savoir-faire des artisans burkinabè.
+---
 
-Faciliter la visibilité des producteurs locaux.
+# 👥 Membres du groupe
 
-Renforcer les échanges entre producteurs et consommateurs.
+| Nom | Rôle | Fichiers |
+|------|------|----------|
+| Nom étudiant 1 | Structure HTML et page d'accueil | index.html |
+| Nom étudiant 2 | Design CSS et Mode sombre | style.css |
+| Nom étudiant 3 | Catalogue produits et Galerie | index.html · script.js |
+| Nom étudiant 4 | Recherche et filtres | script.js |
+| Nom étudiant 5 | Formulaire de contact et intégration finale | index.html · script.js |
 
-Contribuer à la transformation numérique du commerce local.
+---
 
-🙏 **Remerciements**
-Nos encadreurs et enseignants pour leur accompagnement.
+# 🙏 Remerciements
 
-Burkina Institute of Technology (BIT).
+- Notre encadrant pour son accompagnement durant le projet.
+- Burkina Institute of Technology (BIT).
+- Tous les producteurs et artisans burkinabè qui inspirent cette initiative.
+- La documentation officielle de HTML, CSS et JavaScript.
 
-Les producteurs et artisans locaux qui inspirent ce projet.
+---
 
-La communauté du développement web pour les ressources et bonnes pratiques utilisées.
-
-Burkina Institute of Technology (BIT) — Promotion 28 — Projet Web de Groupe 🇧🇫✨
+**Burkina Institute of Technology (BIT) — CS28 — Projet Web de Groupe**
