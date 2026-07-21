@@ -16,46 +16,58 @@ L'interface est simple, moderne et responsive afin de garantir une expérience u
 
 ▶️ **Comment utiliser le projet**
 
-Prérequis
+   Prérequis
+
 Un navigateur web moderne (Google Chrome, Firefox, Edge, Safari)
+
 Aucune installation particulière requise
-Étapes
+
+    Étapes
+    
 Télécharger ou cloner le projet
+
 git clone [URL_DU_DEPOT]
-Ouvrir le dossier du projet
+
+Ouvrir le dossier du projet 
+
 Lancer le fichier :
+
 index.html
+
 L'application s'exécute directement dans le navigateur.
 
 ✨ **Fonctionnalités**
+
 Présentation des produits et filières locales du Burkina Faso.
+
 Catalogue interactif de produits locaux.
+
 Affichage des détails des produits avec prix et informations sur le vendeur.
+
 Recherche instantanée par nom de produit ou vendeur.
+
 Filtrage dynamique par catégorie.
+
 Galerie d'images avec effet Lightbox.
+
 Formulaire de contact permettant d'envoyer un message à un vendeur.
+
 Validation dynamique des champs du formulaire.
+
 Mode sombre (Dark Mode) avec sauvegarde automatique des préférences utilisateur.
+
 Interface responsive adaptée aux différents écrans.
+
 
 🛠️ **Technologies utilisées**
 
-Technologie
-Version
-Utilisation
-HTML5
-Standard
-Structure des pages web
-CSS3
-Standard
-Mise en forme et responsive design
-JavaScript (Vanilla)
-ES6+
-Interactivité et logique de l'application
-localStorage
-API Web
-Sauvegarde des préférences utilisateur
+
+| Technologie | Version | Utilisation |
+|-------------|---------|-------------|
+| HTML5 | Standard | Structure des pages web |
+| CSS3 | Standard | Mise en forme et responsive design |
+| JavaScript (Vanilla) | ES6+ | Interactivité et logique de l'application |
+| localStorage | API Web | Sauvegarde des préférences utilisateur |
 
 📁 **Structure du projet**
 
