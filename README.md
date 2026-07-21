@@ -1,8 +1,9 @@
-**🧺Achetons Burkinabè
-**
+🧺**Achetons Burkinabè**
+
 Une plateforme web interactive dédiée à la promotion des produits locaux et à la mise en relation entre producteurs, artisans et consommateurs au Burkina Faso.
 
-📌 Description
+📌 **Description**
+
 Achetons Burkinabè est une application web développée dans le cadre d'un projet universitaire réalisé par un groupe de cinq étudiants.
 La plateforme vise à valoriser les produits locaux du Burkina Faso en offrant un espace numérique où les producteurs et artisans peuvent présenter leurs produits, tandis que les consommateurs peuvent découvrir et contacter facilement les vendeurs.
 L'application met en avant plusieurs filières locales telles que :
@@ -13,7 +14,7 @@ Le coton
 L'artisanat burkinabè
 L'interface est simple, moderne et responsive afin de garantir une expérience utilisateur fluide sur ordinateur, tablette et smartphone.
 
-▶️ Comment utiliser le projet
+▶️ **Comment utiliser le projet**
 
 Prérequis
 Un navigateur web moderne (Google Chrome, Firefox, Edge, Safari)
@@ -26,7 +27,7 @@ Lancer le fichier :
 index.html
 L'application s'exécute directement dans le navigateur.
 
-✨ Fonctionnalités
+✨ **Fonctionnalités**
 Présentation des produits et filières locales du Burkina Faso.
 Catalogue interactif de produits locaux.
 Affichage des détails des produits avec prix et informations sur le vendeur.
@@ -37,7 +38,9 @@ Formulaire de contact permettant d'envoyer un message à un vendeur.
 Validation dynamique des champs du formulaire.
 Mode sombre (Dark Mode) avec sauvegarde automatique des préférences utilisateur.
 Interface responsive adaptée aux différents écrans.
-🛠️ Technologies utilisées
+
+🛠️ **Technologies utilisées**
+
 Technologie
 Version
 Utilisation
@@ -54,16 +57,20 @@ localStorage
 API Web
 Sauvegarde des préférences utilisateur
 
-📁 Structure du projet
+📁 **Structure du projet**
+
 Achetons_Burkinabe/
 │
 ├── index.html      → Structure principale de la plateforme
+
 ├── style.css       → Mise en forme, responsive design et mode sombre
+
 ├── script.js       → Gestion des produits, recherche et interactions
+
 │
 └── README.md       → Documentation du projet
 
-🧱 Fonctionnement de l'application
+🧱 **Fonctionnement de l'application**
 
 Page d'accueil
 Présente le concept du projet ainsi que les principales filières locales mises en valeur.
@@ -101,30 +108,30 @@ Fonctionnalités
 Activation/désactivation du thème sombre
 Sauvegarde automatique des préférences grâce au localStorage
 
-👥 Répartition des tâches
-Membre
-Responsabilités
-Personne 1
-Structure générale et page d'accueil
-Personne 2
-Design graphique et mode sombre
-Personne 3
-Catalogue produits et galerie Lightbox
-Personne 4
-Recherche instantanée et filtres
-Personne 5
-Formulaire de contact et intégration finale
+👥 **Répartition des tâches**
 
-🎯 Objectifs du projet
+Membres
+
+
+🎯 **Objectifs du projet**
+
 Promouvoir le consommer local.
+
 Valoriser le savoir-faire des artisans burkinabè.
+
 Faciliter la visibilité des producteurs locaux.
+
 Renforcer les échanges entre producteurs et consommateurs.
+
 Contribuer à la transformation numérique du commerce local.
 
-🙏 Remerciements
+🙏 **Remerciements**
 Nos encadreurs et enseignants pour leur accompagnement.
+
 Burkina Institute of Technology (BIT).
+
 Les producteurs et artisans locaux qui inspirent ce projet.
+
 La communauté du développement web pour les ressources et bonnes pratiques utilisées.
+
 Burkina Institute of Technology (BIT) — Promotion 28 — Projet Web de Groupe 🇧🇫✨
