@@ -2,7 +2,7 @@
 
 Une plateforme web interactive de promotion des produits locaux et de mise en relation entre producteurs, artisans et consommateurs au Burkina Faso.
 
-Projet réalisé dans le cadre du cours de Développement Web par les étudiants de première année en informatique du **Burkina Institute of Technology (BIT)** — **Juin 2026**.
+Projet réalisé dans le cadre du cours de Développement Web par les étudiants de première année en informatique du **Burkina Institute of Technology (BIT)** .
 
 ---
 
