@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Achetons Burkinabè – Promouvoir les produits du Burkina Faso</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<header class="entete">
+  <div class="barre-nav">
+    <a href="#" class="logo" onclick="allerA('accueil'); return false;">🛒 Achetons <span>Burkinabè</span></a>
+    <nav class="liens">
+      <button class="lien-nav actif" data-page="accueil" onclick="allerA('accueil')">Accueil</button>
+      <button class="lien-nav" data-page="produits" onclick="allerA('produits')">Produits</button>
+      <button class="lien-nav" data-page="contact" onclick="allerA('contact')">Contact vendeur</button>
+    </nav>
+    <button id="toggleSombre" class="bouton-sombre">🌙 Mode sombre</button>
+  </div>
+</header>
+
+<!-- ========== PAGE ACCUEIL (Personne 1) ========== -->
+<div class="page active" id="page-accueil">
+  <section class="banniere">
+    <div class="conteneur">
+      <span class="eyebrow">Fabriqué au Burkina Faso</span>
+      <h1>Découvrez et achetez ce que le Burkina Faso fabrique de mieux</h1>
+      <p>Karité, sésame, miel, coton, artisanat... Une vitrine pour les producteurs et artisans locaux, pensée pour les mettre en relation directe avec vous.</p>
+      <button class="btn" onclick="allerA('produits')">Découvrir les produits</button>
+    </div>
+  </section>
+  <div class="motifs-tissu"></div>
+
+  <section class="bloc">
+    <div class="titre-section">
+      <span class="eyebrow">Nos catégories</span>
+      <h2>Des filières qui font la richesse du pays</h2>
+      <p>Chaque produit est rattaché à un vendeur ou une coopérative locale.</p>
+    </div>
+    <div class="produits-phares">
+      <div class="phare"><div class="icone">🧈</div><h3>Karité</h3><p>Beurre et savons artisanaux</p></div>
+      <div class="phare"><div class="icone">🌾</div><h3>Sésame</h3><p>Graines et huile pressée à froid</p></div>
+      <div class="phare"><div class="icone">🍯</div><h3>Miel</h3><p>Récolté en forêt classée</p></div>
+      <div class="phare"><div class="icone">🧵</div><h3>Coton</h3><p>Pagnes bazin et fils filés main</p></div>
+      <div class="phare"><div class="icone">🪡</div><h3>Artisanat</h3><p>Paniers, bronzes, masques, bijoux</p></div>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="apropos">
+      <div>
+        <span class="eyebrow">Le concept</span>
+        <h2>Pourquoi Achetons Burkinabè ?</h2>
+        <p>La plateforme rassemble en un seul endroit les produits fabriqués localement, pour aider les artisans et producteurs burkinabè à toucher plus de clients, et permettre à chacun de trouver et d'acheter burkinabè facilement.</p>
+      </div>
+      <div>
+        <p>🔎 Recherche instantanée par nom ou catégorie<br>
+        🗺️ Galerie visuelle de chaque produit<br>
+        📞 Contact direct avec le vendeur<br>
+        🌙 Mode sombre pour un confort de lecture</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============== PAGE PRODUITS (Personne 3 + Personne 4) ============== -->
+<div class="page" id="page-produits">
+  <section class="entete-page">
+    <h1>Tous nos produits</h1>
+    <p>Recherchez et filtrez par catégorie pour trouver ce que vous cherchez</p>
+  </section>
+  <div class="barre-recherche-filtres">
+    <input type="text" id="rechercheProduit" placeholder="🔍 Rechercher un produit, une catégorie, un vendeur...">
+    <div class="filtres-categories" id="filtresCategories"></div>
+    </div>
+    <div class="grille-produits" id="grilleProduits"></div>
+    <p class="vide-produits" id="messageAucunProduit" style="display:none;">Aucun produit ne correspond à votre recherche.</p>
+  </div>
+
+<!-- ============ PAGE CONTACT (Personne 5) ============ -->
+<div class="page" id="page-contact">
+  <section class="entete-page">
+    <h1>Contacter un vendeur</h1>
+    <p>Une question sur un produit ? Écrivez directement au producteur ou à la coopérative.</p>
+  </section>
+  <div class="zone-contact">
+    <div class="carte-contact">
+      <div class="message-confirmation" id="messageConfirmation">✨ Votre message a bien été envoyé. Le vendeur vous répondra directement.</div>
+      <form id="formContact" novalidate>
+        <div class="champ" id="champNom">
+          <label for="nom">Nom complet</label>
+          <input type="text" id="nom" placeholder="Votre nom">
+          <div class="erreur-champ">Merci d'indiquer votre nom.</div>
+        </div>
+        <div class="champ" id="champContact">
+          <label for="contactInfo">Téléphone ou email</label>
+          <input type="text" id="contactInfo" placeholder="70 00 00 00 ou email@exemple.com">
+          <div class="erreur-champ">Merci d'indiquer un numéro ou un email valide.</div>
+        </div>
+        <div class="champ" id="champProduit">
+          <label for="produitConcerne">Produit concerné</label>
+          <select id="produitConcerne"><option value="">-- Sélectionner un produit --</option></select>
+          <div class="erreur-champ">Merci de choisir un produit.</div>
+        </div>
+        <div class="champ" id="champMessage">
+          <label for="messageTexte">Votre message</label>
+          <textarea id="messageTexte" placeholder="Bonjour, je suis intéressé(e) par..."></textarea>
+          <div class="erreur-champ">Merci d'écrire un message (10 caractères minimum).</div>
+        </div>
+        <button type="submit" class="btn">Envoyer le message</button>
+      </form>
+    </div>
+        </div>
+  </div>
+
+<footer class="pied">
+  <p><strong>Achetons Burkinabè</strong> – Projet Étudiant, plateforme de promotion des produits locaux</p>
+  <p>Groupe de 5 – Projet Web</p>
+</footer>
+
+<!-- Lightbox / Galerie -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-contenu">
+    <button class="lightbox-fermer" onclick="fermerLightbox()">×</button>
+    <button class="lightbox-nav gauche" onclick="lightboxPrecedent()">‹</button>
+    <button class="lightbox-nav droite" onclick="lightboxSuivant()">›</button>
+    <div class="lightbox-visuel" id="lightboxVisuel"><span id="lightboxEmoji"></span></div>
+    <div class="lightbox-corps">
+      <span class="badge-categorie" id="lightboxCategorieBadge"></span>
+      <h3 id="lightboxNom"></h3>
+      <p id="lightboxDesc"></p>
+      <div class="ligne-prix">
+        <strong id="lightboxPrix"></strong>
+        <span class="vendeur" id="lightboxVendeur"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
