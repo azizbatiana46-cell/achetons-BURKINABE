@@ -1,1 +1,173 @@
+/* ===========OUEDRAOGO Hanifa — Données produits============= */
+const PRODUITS = [
+  {id:1, nom:"Beurre de karité pur", categorie:"Karité", couleur:"#e8d4a0", emoji:"🧴", prix:"2 500 FCFA", description:"Beurre de karité 100% naturel, extrait artisanalement dans la région du Sud-Ouest.", vendeur:"Coopérative Femmes de Léo"},
+  {id:2, nom:"Savon au karité et miel", categorie:"Karité", couleur:"#d9b568", emoji:"🧼", prix:"1 200 FCFA", description:"Savon artisanal enrichi au karité et au miel local, doux pour la peau.", vendeur:"Atelier Sougrinooma"},
+  {id:3, nom:"Graines de sésame doré", categorie:"Sésame", couleur:"#eccf8a", emoji:"🌾", prix:"1 800 FCFA / kg", description:"Sésame doré cultivé dans la Boucle du Mouhoun, idéal pour huile ou pâtisserie.", vendeur:"Ferme Wend-Kuni"},
+  {id:4, nom:"Huile de sésame artisanale", categorie:"Sésame", couleur:"#c99a4a", emoji:"🫙", prix:"3 000 FCFA", description:"Huile pressée à froid, riche en saveur, produite dans une unité locale.", vendeur:"Coopérative Wend-Kuni"},
+  {id:5, nom:"Miel toutes fleurs du Sud-Ouest", categorie:"Miel", couleur:"#e8a13a", emoji:"🍯", prix:"4 000 FCFA", description:"Miel récolté en forêt classée, non filtré, non chauffé.", vendeur:"Apiculteurs de Diébougou"},
+  {id:6, nom:"Miel de karité en rayon", categorie:"Miel", couleur:"#d9901f", emoji:"🐝", prix:"5 500 FCFA", description:"Miel brut en rayon, récolté à la saison des fleurs de karité.", vendeur:"Apiculteurs de Diébougou"},
+  {id:7, nom:"Pagne en coton bazin", categorie:"Coton", couleur:"#7fa88a", emoji:"🧵", prix:"18 000 FCFA", description:"Pagne bazin riche tissé à partir de coton burkinabè, couleur au choix.", vendeur:"Tisserands de Koudougou"},
+  {id:8, nom:"Fil de coton filé main", categorie:"Coton", couleur:"#f1e6d0", emoji:"🧶", prix:"900 FCFA / bobine", description:"Fil de coton filé à la main selon les techniques traditionnelles.", vendeur:"Coopérative de filature de Bobo"},
+  {id:9, nom:"Panier tressé en fibres locales", categorie:"Artisanat", couleur:"#a8531f", emoji:"🧺", prix:"6 500 FCFA", description:"Panier tressé main, motifs traditionnels, plusieurs tailles disponibles.", vendeur:"Artisans de Ouahigouya"},
+  {id:10, nom:"Bronze du Burkina (statuette)", categorie:"Artisanat", couleur:"#7a3b14", emoji:"🗿", prix:"15 000 FCFA", description:"Statuette en bronze coulée selon la technique de la cire perdue.", vendeur:"Fondeurs de Ouagadougou"},
+  {id:11, nom:"Masque en bois sculpté", categorie:"Artisanat", couleur:"#5a3a1e", emoji:"🎭", prix:"12 000 FCFA", description:"Masque traditionnel sculpté à la main dans du bois local.", vendeur:"Sculpteurs de Bobo-Dioulasso"},
+  {id:12, nom:"Bijoux en perles du Sahel", categorie:"Artisanat", couleur:"#e8a13a", emoji:"📿", prix:"3 200 FCFA", description:"Collier et bracelets assortis, perles colorées travaillées à la main.", vendeur:"Artisanes de Dori"}
+];
+const CATEGORIES = [...new Set(PRODUITS.map(p => p.categorie))];
 
+/* =========OUEDRAOGO Hanifa = Recherche & Filtres====================== */
+
+let categorieActive = "toutes";
+let indexLightbox = 0;
+let produitsAffiches = [];
+
+function construireBoutonsCategories(){
+  const conteneur = document.getElementById('filtresCategories');
+  const boutons = ["toutes", ...CATEGORIES].map(cat => {
+    const label = cat === "toutes" ? "Tous les produits" : cat;
+    return `<button class="filtre-cat" data-cat="${cat}">${label}</button>`;
+  }).join('');
+  conteneur.innerHTML = boutons;
+  conteneur.querySelectorAll('.filtre-cat').forEach(btn => {
+    btn.addEventListener('click', () => {
+      categorieActive = btn.dataset.cat;
+      conteneur.querySelectorAll('.filtre-cat').forEach(b => b.classList.remove('actif'));
+      btn.classList.add('actif');
+      filtrerEtAfficher();
+    });
+  });
+  conteneur.querySelector('[data-cat="toutes"]').classList.add('actif');
+}
+
+function filtrerEtAfficher(){
+  const champRecherche = document.getElementById('rechercheProduit');
+  const terme = champRecherche ? champRecherche.value.trim().toLowerCase() : "";
+  produitsAffiches = PRODUITS.filter(p => {
+    const correspondCategorie = categorieActive === "toutes" || p.categorie === categorieActive;
+    const correspondRecherche = p.nom.toLowerCase().includes(terme) ||
+                                 p.categorie.toLowerCase().includes(terme) ||
+                                 p.vendeur.toLowerCase().includes(terme);
+    return correspondCategorie && correspondRecherche;
+  });
+  afficherProduits(produitsAffiches);
+}
+
+function afficherProduits(liste){
+  const grille = document.getElementById('grilleProduits');
+  const messageVide = document.getElementById('messageAucunProduit');
+  if(liste.length === 0){
+    grille.innerHTML = '';
+    messageVide.style.display = 'block';
+    return;
+  }
+  messageVide.style.display = 'none';
+  grille.innerHTML = liste.map((p, i) => `
+    <article class="carte-produit">
+      <div class="vignette-produit" style="background:${p.couleur}" onclick="ouvrirLightbox(${i})"><span>${p.emoji}</span></div>
+      <div class="corps-produit">
+        <span class="badge-categorie">${p.categorie}</span>
+        <h3>${p.nom}</h3>
+        <p class="desc-produit">${p.description}</p>
+        <div class="ligne-prix"><strong>${p.prix}</strong><span class="vendeur">${p.vendeur}</span></div>
+      </div>
+    </article>
+  `).join('');
+}
+
+/* ---- Galerie / Lightbox (Personne 3) ---- */
+function ouvrirLightbox(index){ indexLightbox = index; majLightbox(); document.getElementById('lightbox').classList.add('ouvert'); }
+function fermerLightbox(){ document.getElementById('lightbox').classList.remove('ouvert'); }
+function lightboxSuivant(){ indexLightbox = (indexLightbox + 1) % produitsAffiches.length; majLightbox(); }
+function lightboxPrecedent(){ indexLightbox = (indexLightbox - 1 + produitsAffiches.length) % produitsAffiches.length; majLightbox(); }
+function majLightbox(){
+  const p = produitsAffiches[indexLightbox];
+  if(!p) return;
+  document.getElementById('lightboxVisuel').style.background = p.couleur;
+  document.getElementById('lightboxEmoji').textContent = p.emoji;
+  document.getElementById('lightboxCategorieBadge').textContent = p.categorie;
+  document.getElementById('lightboxNom').textContent = p.nom;
+  document.getElementById('lightboxDesc').textContent = p.description;
+  document.getElementById('lightboxPrix').textContent = p.prix;
+  document.getElementById('lightboxVendeur').textContent = p.vendeur;
+}
+
+/* =============BATIANA — Mode sombre====================== */
+function appliquerModeSombre(actif){
+  document.body.classList.toggle('mode-sombre', actif);
+  const bouton = document.getElementById('toggleSombre');
+  bouton.textContent = actif ? '☀️ Mode clair' : '🌙 Mode sombre';
+  localStorage.setItem('achetons_bf_mode_sombre', actif ? '1' : '0');
+}
+
+/* ===============KINDO Andrea — Navigation entre pages (fichier unique)=================== */
+function allerA(nomPage){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + nomPage).classList.add('active');
+  document.querySelectorAll('.lien-nav').forEach(b => b.classList.toggle('actif', b.dataset.page === nomPage));
+  window.scrollTo({top:0, behavior:'smooth'});
+  if(nomPage === 'produits' && document.getElementById('grilleProduits').innerHTML === ''){
+    construireBoutonsCategories();
+    filtrerEtAfficher();
+  }
+}
+
+/* ==============BATIANA  — Contact vendeur & Intégration finale======================== */
+function remplirSelectProduits(){
+  const select = document.getElementById('produitConcerne');
+  PRODUITS.forEach(p => {
+    const option = document.createElement('option');
+    option.value = p.nom;
+    option.textContent = `${p.nom} — ${p.vendeur}`;
+    select.appendChild(option);
+  });
+}
+function validerChamp(id, condition){
+  const champ = document.getElementById(id);
+  champ.classList.toggle('invalide', !condition);
+  return condition;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Mode sombre : préférence sauvegardée
+  const prefSombre = localStorage.getItem('achetons_bf_mode_sombre') === '1';
+  appliquerModeSombre(prefSombre);
+  document.getElementById('toggleSombre').addEventListener('click', () => {
+    appliquerModeSombre(!document.body.classList.contains('mode-sombre'));
+  });
+
+  // Recherche produits
+  document.getElementById('rechercheProduit').addEventListener('input', filtrerEtAfficher);
+
+  // Contact
+  remplirSelectProduits();
+  document.getElementById('formContact').addEventListener('submit', function(e){
+    e.preventDefault();
+    const nom = document.getElementById('nom').value.trim();
+    const contactInfo = document.getElementById('contactInfo').value.trim();
+    const produit = document.getElementById('produitConcerne').value;
+    const message = document.getElementById('messageTexte').value.trim();
+
+    const regexTelephone = /^[0-9\s+]{8,}$/;
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const contactValide = regexTelephone.test(contactInfo) || regexEmail.test(contactInfo);
+
+    const nomOk = validerChamp('champNom', nom.length >= 2);
+    const contactOk = validerChamp('champContact', contactValide);
+    const produitOk = validerChamp('champProduit', produit !== '');
+    const messageOk = validerChamp('champMessage', message.length >= 10);
+
+    const messageConfirmation = document.getElementById('messageConfirmation');
+    if(nomOk && contactOk && produitOk && messageOk){
+      messageConfirmation.style.display = 'block';
+      this.reset();
+      document.querySelectorAll('.champ').forEach(c => c.classList.remove('invalide'));
+      messageConfirmation.scrollIntoView({behavior:'smooth', block:'center'});
+    } else {
+      messageConfirmation.style.display = 'none';
+    }
+  });
+
+  // Chargement initial de la page produits
+  construireBoutonsCategories();
+  filtrerEtAfficher();
+});
